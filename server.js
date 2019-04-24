@@ -23,12 +23,6 @@ app.engine(
   );
 app.set("view engine", "handlebars");
 
-burgerDB.addBurger({name: "Farty", state: true}, (results) => console.log(results));
-
-burgerDB.changeBurger({name: "Juan", state: false, id: 2}, (results => console.log(results)));
-
-burgerDB.getAllBurgers((results) => console.log(results));
-
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
