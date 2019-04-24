@@ -57,7 +57,7 @@ const ORM = {
                 throw err;
                 return;
             }
-            console.log(cb);
+            
             cb(results);
         });
     }

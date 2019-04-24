@@ -10,29 +10,34 @@
         </div>
     </div>
     <div class="row mb-2">
-        <div class="col-4 justify-content-center" id="undevoured">
+        <div class="col-5 justify-content-center" id="undevoured">
             {{#each burgers}}
                 {{#unless devoured}}
-                        <div class="burgerHolder row" data-toggle="tooltip" data-placement="top" title="Click to rename">
-                            <span class="bName col-auto" data-number={{id}} data-name={{burger_name}}>{{id}}. {{burger_name}}</span>
+                        <div class="burgerHolder row">
+                            <span class="bName col-auto" data-number={{id}} data-name={{burger_name}}
+                            data-toggle="tooltip" data-placement="top" title="Click to rename">{{id}}. {{burger_name}}</span>
                             <button class="btn btn-primary mb-1 mt-1 ml-auto col-auto burgerButton" value={{id}}>Devour</button>
                         </div>
                 {{/unless}}
             {{/each}}
         </div>
-        <div class="col-6 offset-2" id="devoured" value="{{id}}. {{burger_name}}" />
+        <div class="col-5 offset-2" id="devoured" value="{{id}}. {{burger_name}}" />
             <div class="row justify-content-right">
                 {{#each burgers}}
                     {{#if devoured}}
-                        <input class="mb-1 ml-auto burgerButton" type="text" disabled id="burger{{id}}" value="{{id}}. {{burger_name}}" />
+                        <input class="mb-1 ml-auto burgerButton table-info" type="text" disabled id="burger{{id}}" value="{{id}}. {{burger_name}}" />
                     {{/if}}
                 {{/each}}
             </div>
         </div>
     </div>
-    <div class="row justify-content-center">
-        <input type="textarea"id="newBurger" />
-        <button class="btn" type="button" id="burgerMaker">Submit</button>
-        <h4>To create a new burger enter the name and click the submit button.</h4>
+    <div class="row justify-content-center mt-5">
+        <input type="text" id="newBurger" />
+        <button class="btn ml-2 btn-light" type="button" id="burgerMaker">Submit</button>
+    </div>
+    <div class="row justify-content-center mt-2">
+        <div class="col-auto">
+            <h4 class="mt-3">To create a new burger enter the name and click the submit button.</h4>
+        </div>
     </div>
 </section>

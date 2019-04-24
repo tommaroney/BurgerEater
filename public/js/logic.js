@@ -5,13 +5,8 @@ $(document).ready( () => {
     })
 
     $(".burgerButton").click((event) => {
-        console.log("here");
 
-        let change = { id: event.target.value,
-                       state: true
-                     }
-
-        console.log(change);
+        let change = { id: event.target.value, state: true }
 
         $.ajax({
             method: "PATCH",
@@ -43,20 +38,25 @@ $(document).ready( () => {
 
     const inputChangeEvent = (replacement) => {
         $(".burgerTitle").focusout(event => {
-            const burgerNameSpan = $(event.target).replaceWith(replacement);
+            
+            $(event.target).replaceWith(replacement);
             $(replacement[0]).click(bNameClick);
+            
         });
     }
 
     const bNameClick = () => {
-        console.log("here");
+        
         let originalElement = $(event.target);
+        
+        originalElement.tooltip('hide');
         const number = originalElement.data("number");
-        const text = originalElement.data("name");
-        $(event.target).replaceWith(`<input type="text" id="selectedBurger" class="burgerTitle" data-number=${number} value=${text} />`);
+
+        $(event.target).replaceWith(`<input type="text" id="selectedBurger" class="burgerTitle" data-number=${number}/>`);
         $("#selectedBurger").focus();
         inputClick();
         inputChangeEvent(originalElement);
+        originalElement.tooltip('show');
     }
 
     $("div.burgerHolder span.bName").click(bNameClick);
